@@ -2,6 +2,10 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import dynamic from "next/dynamic";
 
+
+const NoSSR_RTK_Query_Comp = dynamic(() =>
+    import('@/app/root_comp/cart/rtk_query/RTK_Query_Comp'), {ssr: false});
+
 const Header_Comp = dynamic(() => import('@/app/root_comp/header/Header_Comp'), {ssr: false});
 const Cart_Comp_Root = dynamic(() => import('@/app/root_comp/cart/Cart_Comp_Root'), {ssr: false});
 export default function Home() {
@@ -11,7 +15,11 @@ export default function Home() {
 
 
 
+        <NoSSR_RTK_Query_Comp/>
         <Header_Comp/>
+
+
+
         <Cart_Comp_Root/>
 
       </main>
